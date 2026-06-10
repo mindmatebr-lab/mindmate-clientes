@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mind Mate — Solicitar Serviço</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0D1F3C;
+    --navy-mid: #1A3260;
+    --white: #FFFFFF;
+    --gold: #B8973A;
+    --gold-light: #D4B96A;
+    --gold-pale: #F0E6C8;
+    --gray-bg: #F6F7F9;
+    --gray-border: #E0E4EC;
+    --gray-text: #6B7280;
+    --gray-mid: #9CA3AF;
+    --black: #0A0F1E;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--gray-bg);
+    color: var(--black);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .gold-rule { height: 1px; background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 60%, transparent 100%); width: 100%; }
+
+  /* COVER/HERO */
+  .cover {
+    background: var(--navy);
+    padding: 56px 48px 64px;
+  }
+
+  .cover-inner { max-width: 720px; margin: 0 auto; }
+
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 64px;
+  }
+
+  .cover-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .cover-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-align: right;
+    line-height: 2;
+  }
+
+  .cover-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.12;
+    margin-bottom: 8px;
+  }
+
+  .cover-title em { font-style: italic; color: var(--gold-light); }
+
+  .cover-divider { width: 48px; height: 2px; background: var(--gold); margin: 28px 0; }
+
+  .cover-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    max-width: 460px;
+    line-height: 1.85;
+  }
+
+  /* FORM CONTAINER */
+  .form-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+
+  .form-card {
+    background: var(--white);
+    border: 1px solid var(--gray-border);
+    padding: 48px;
+  }
+
+  .form-section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gray-border);
+  }
+
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .form-full { grid-column: 1 / -1; }
+
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+
+  .form-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .form-label span { color: var(--gold); margin-left: 2px; }
+
+  .form-input {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--black);
+    background: var(--white);
+    border: 1px solid var(--gray-border);
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-input:focus { border-color: var(--navy); }
+  .form-input::placeholder { color: var(--gray-mid); }
+
+  .form-textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--black);
+    background: var(--white);
+    border: 1px solid var(--gray-border);
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    resize: vertical;
+    min-height: 140px;
+  }
+
+  .form-textarea:focus { border-color: var(--navy); }
+  .form-textarea::placeholder { color: var(--gray-mid); }
+
+  .form-select {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--black);
+    background: var(--white);
+    border: 1px solid var(--gray-border);
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+  }
+
+  .form-select:focus { border-color: var(--navy); }
+
+  /* UPLOAD */
+  .upload-box {
+    border: 2px dashed var(--gray-border);
+    padding: 32px;
+    text-align: center;
+    background: var(--gray-bg);
+    transition: border-color 0.2s;
+  }
+
+  .upload-box:hover { border-color: var(--navy); }
+
+  .upload-icon { font-size: 32px; margin-bottom: 12px; display: block; }
+
+  .upload-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--gray-text);
+    line-height: 1.7;
+    margin-bottom: 6px;
+  }
+
+  .upload-text strong { color: var(--navy); font-weight: 500; }
+
+  .upload-info {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--gray-mid);
+  }
+
+  /* DIVIDER */
+  .form-divider { height: 1px; background: var(--gray-border); margin: 36px 0; }
+
+  /* SUBMIT */
+  .submit-btn {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 20px 56px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 100%;
+    margin-top: 32px;
+  }
+
+  .submit-btn:hover { background: var(--navy-mid); }
+  .submit-btn:disabled { background: var(--gray-mid); cursor: not-allowed; }
+
+  /* MESSAGES */
+  .msg-sucesso {
+    display: none;
+    margin-top: 28px;
+    padding: 32px;
+    background: #EFF5F1;
+    border-left: 4px solid var(--gold);
+    text-align: center;
+  }
+
+  .msg-sucesso h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .msg-sucesso p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--gray-text);
+    line-height: 1.8;
+  }
+
+  .msg-erro {
+    display: none;
+    margin-top: 20px;
+    padding: 20px 24px;
+    background: #FEF2F2;
+    border-left: 3px solid #EF4444;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #991B1B;
+  }
+
+  .form-input.error, .form-textarea.error, .form-select.error { border-color: #EF4444; }
+
+  .error-msg {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: #EF4444;
+    display: none;
+  }
+
+  /* FOOTER */
+  .closing-footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 48px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 36px;
+    border-top: 1px solid var(--gray-border);
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .closing-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  .closing-brand-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--gray-text);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .closing-contact {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--gray-text);
+    text-align: right;
+    line-height: 2;
+  }
+
+  .closing-contact span {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  @media (max-width: 640px) {
+    .cover { padding: 40px 24px 48px; }
+    .cover-top { flex-direction: column; gap: 16px; }
+    .cover-meta { text-align: left; }
+    .form-container { padding: 40px 24px 60px; }
+    .form-card { padding: 28px 20px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .closing-footer { padding: 36px 24px 48px; flex-direction: column; }
+    .closing-contact { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CAPA/HERO -->
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-logo">Mind Mate</div>
+      <div class="cover-meta">
+        Central de Atendimento<br>
+        Documento Confidencial
+      </div>
+    </div>
+    <div class="cover-eyebrow">Central de Atendimento</div>
+    <h1 class="cover-title">Faça sua <em>solicitação.</em></h1>
+    <div class="cover-divider"></div>
+    <p class="cover-sub">Preencha o formulário abaixo com os detalhes da sua solicitação. Nossa equipe entrará em contato em breve pelo canal de sua preferência.</p>
+  </div>
+</div>
+
+<div class="gold-rule"></div>
+
+<!-- FORMULÁRIO -->
+<div class="form-container">
+  <div class="form-card">
+    <form id="form-solicitacao" novalidate>
+
+      <!-- DADOS PESSOAIS -->
+      <div class="form-section-title">01 — Seus Dados</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Nome completo <span>*</span></label>
+          <input type="text" id="nome" class="form-input" placeholder="Seu nome completo" required>
+          <span class="error-msg" id="err-nome">Campo obrigatório</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Empresa <span>*</span></label>
+          <input type="text" id="empresa" class="form-input" placeholder="Nome da sua empresa" required>
+          <span class="error-msg" id="err-empresa">Campo obrigatório</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">WhatsApp <span>*</span></label>
+          <input type="tel" id="whatsapp" class="form-input" placeholder="(21) 99999-9999" required>
+          <span class="error-msg" id="err-whatsapp">Campo obrigatório</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">E-mail <span>*</span></label>
+          <input type="email" id="email" class="form-input" placeholder="seu@email.com" required>
+          <span class="error-msg" id="err-email">E-mail inválido</span>
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+
+      <!-- SOLICITAÇÃO -->
+      <div class="form-section-title">02 — Sua Solicitação</div>
+      <div class="form-grid">
+        <div class="form-group form-full">
+          <label class="form-label">O que você deseja solicitar? <span>*</span></label>
+          <textarea id="solicitacao" class="form-textarea" placeholder="Descreva com detalhes o que você precisa..." required></textarea>
+          <span class="error-msg" id="err-solicitacao">Campo obrigatório</span>
+        </div>
+        <div class="form-group form-full">
+          <label class="form-label">Como prefere ser atendido? <span>*</span></label>
+          <select id="preferencia" class="form-select" required>
+            <option value="">Selecione uma opção</option>
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="E-mail">E-mail</option>
+            <option value="Ambos">WhatsApp e E-mail</option>
+          </select>
+          <span class="error-msg" id="err-preferencia">Selecione uma opção</span>
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+
+      <!-- ANEXOS -->
+      <div class="form-section-title">03 — Anexos (Opcional)</div>
+      <div class="form-group">
+        <label class="form-label">Fotos, PDFs ou Referências</label>
+        <div class="upload-box">
+          <span class="upload-icon">📎</span>
+          <div class="upload-text">
+            <strong>Clique para selecionar arquivos</strong> ou arraste aqui<br>
+            Fotos, PDFs, documentos e referências
+          </div>
+          <div class="upload-info">JPG, PNG, PDF, DOCX — até 100MB por arquivo</div>
+          <div style="margin-top:20px;">
+            <input type="hidden" role="uploadcare-uploader" id="anexos"
+              data-public-key="f2abbb5847321eca2cde"
+              data-multiple="true"
+              data-images-only="false"
+              data-preview-step="true"
+              data-clearable="true"
+            />
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn" id="btn-submit">
+        Enviar Solicitação →
+      </button>
+
+      <div class="msg-sucesso" id="msg-sucesso">
+        <h3>Solicitação recebida com sucesso!</h3>
+        <p>Você receberá uma confirmação no seu e-mail e WhatsApp em instantes.<br>Nossa equipe entrará em contato em breve.</p>
+      </div>
+
+      <div class="msg-erro" id="msg-erro">
+        Não foi possível enviar sua solicitação. Por favor, entre em contato diretamente pelo WhatsApp: (21) 98178-3125
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="max-width:720px;margin:0 auto;padding:0 48px;">
+  <div class="gold-rule" style="margin-bottom:36px;"></div>
+</div>
+<div class="closing-footer">
+  <div>
+    <div class="closing-brand">Mind Mate</div>
+    <div class="closing-brand-sub">Implantação Estratégica de Negócios</div>
+  </div>
+  <div class="closing-contact">
+    <span>Contato</span>
+    (21) 98178-3125 · mindmatebr@gmail.com<br>
+    © Mind Mate · Todos os direitos reservados
+  </div>
+</div>
+
+<script>
+  emailjs.init('PL4dQObXgFu9pYnEq');
+
+  const EVOLUTION_URL = 'https://warmbloodedmanatee-evolution.cloudfy.live';
+  const EVOLUTION_KEY = '9D267AFED916-4D43-B008-DFF854D8858B';
+  const EVOLUTION_INSTANCE = 'MIND MATE - ATENDIMENTO';
+  const MEU_NUMERO = '5521981783125';
+
+  function limparTelefone(tel) {
+    return '55' + tel.replace(/\D/g, '');
+  }
+
+  async function enviarWhatsApp(numero, mensagem) {
+    try {
+      await fetch(`${EVOLUTION_URL}/message/sendText/${encodeURIComponent(EVOLUTION_INSTANCE)}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': EVOLUTION_KEY
+        },
+        body: JSON.stringify({ number: numero, text: mensagem })
+      });
+    } catch(e) { console.log('WhatsApp error:', e); }
+  }
+
+  function validar() {
+    let valido = true;
+    const campos = [
+      { id: 'nome', err: 'err-nome' },
+      { id: 'empresa', err: 'err-empresa' },
+      { id: 'whatsapp', err: 'err-whatsapp' },
+      { id: 'solicitacao', err: 'err-solicitacao' },
+      { id: 'preferencia', err: 'err-preferencia' }
+    ];
+    campos.forEach(c => {
+      const el = document.getElementById(c.id);
+      const err = document.getElementById(c.err);
+      if (!el.value.trim()) {
+        el.classList.add('error'); err.style.display = 'block'; valido = false;
+      } else {
+        el.classList.remove('error'); err.style.display = 'none';
+      }
+    });
+    const email = document.getElementById('email');
+    const errEmail = document.getElementById('err-email');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      email.classList.add('error'); errEmail.style.display = 'block'; valido = false;
+    } else {
+      email.classList.remove('error'); errEmail.style.display = 'none';
+    }
+    return valido;
+  }
+
+  document.getElementById('form-solicitacao').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (!validar()) return;
+
+    const btn = document.getElementById('btn-submit');
+    btn.disabled = true;
+    btn.innerText = 'Enviando...';
+
+    const nome = document.getElementById('nome').value;
+    const empresa = document.getElementById('empresa').value;
+    const whatsapp = document.getElementById('whatsapp').value;
+    const email = document.getElementById('email').value;
+    const solicitacao = document.getElementById('solicitacao').value;
+    const preferencia = document.getElementById('preferencia').value;
+    const agora = new Date();
+    const data = agora.toLocaleDateString('pt-BR') + ' às ' + agora.toLocaleTimeString('pt-BR');
+
+    let anexosLink = 'Nenhum anexo';
+    try {
+      const widget = uploadcare.Widget('#anexos');
+      const fileGroup = widget.value();
+      if (fileGroup) anexosLink = fileGroup.cdnUrl || 'Nenhum anexo';
+    } catch(e) {}
+
+    try {
+      await emailjs.send('service_g3iblkp', 'template_trsctkj', {
+        name: nome, data: data, email: 'mindmatebr@gmail.com',
+        message: `NOVA SOLICITAÇÃO\n\nNome: ${nome}\nEmpresa: ${empresa}\nWhatsApp: ${whatsapp}\nE-mail: ${email}\nPreferência: ${preferencia}\n\nSolicitação:\n${solicitacao}\n\nAnexos: ${anexosLink}\n\nData: ${data}`
+      });
+
+      await emailjs.send('service_g3iblkp', 'template_trsctkj', {
+        name: nome, data: data, email: email,
+        message: `Olá, ${nome}! Recebemos sua solicitação com sucesso.\n\nNossa equipe entrará em contato em breve pelo ${preferencia}.\n\nResumo:\n${solicitacao}\n\n— Mind Mate`
+      });
+
+      await enviarWhatsApp(MEU_NUMERO,
+        `🔔 *Nova Solicitação — Mind Mate*\n\n👤 *Nome:* ${nome}\n🏢 *Empresa:* ${empresa}\n📱 *WhatsApp:* ${whatsapp}\n📧 *E-mail:* ${email}\n✅ *Preferência:* ${preferencia}\n\n📋 *Solicitação:*\n${solicitacao}\n\n📎 *Anexos:* ${anexosLink}\n\n🕐 ${data}`
+      );
+
+      await enviarWhatsApp(limparTelefone(whatsapp),
+        `Olá, *${nome}*! 👋\n\nRecebemos sua solicitação com sucesso!\n\nNossa equipe da *Mind Mate* entrará em contato em breve pelo ${preferencia}.\n\nQualquer dúvida, estamos à disposição.\n\n— *Mind Mate*\n(21) 98178-3125`
+      );
+
+      btn.style.display = 'none';
+      document.getElementById('msg-sucesso').style.display = 'block';
+    } catch(err) {
+      btn.disabled = false;
+      btn.innerText = 'Enviar Solicitação →';
+      document.getElementById('msg-erro').style.display = 'block';
+    }
+  });
+</script>
+</body>
+</html>
