@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mind Mate — Proposta Comercial · Vanessa Santos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --white: #FFFFFF;
+    --black: #0D0D0D;
+    --navy: #1B2A4A;
+    --navy-mid: #243456;
+    --gold: #C9A84C;
+    --gold-light: #E8D49A;
+    --gray-bg: #F7F7F5;
+    --gray-border: #E2E2DE;
+    --gray-text: #6B6B65;
+    --gray-mid: #999990;
+  }
+
+  html { font-size: 16px; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+
+  .gold-rule { height: 1px; background: var(--gold); width: 100%; margin: 0; }
+  .thin-rule { height: 1px; background: var(--gray-border); width: 100%; }
+
+  /* COVER */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px 0 60px;
+  }
+
+  .cover-top { display: flex; justify-content: space-between; align-items: flex-start; }
+
+  .cover-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+
+  .cover-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  .cover-center { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 80px 0; }
+
+  .cover-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+
+  .cover-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 7vw, 72px);
+    font-weight: 400;
+    line-height: 1.08;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+
+  .cover-headline em {
+    font-style: italic;
+    color: var(--black);
+  }
+
+  .cover-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--gray-text);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 28px;
+    padding-top: 28px;
+    border-top: 1px solid var(--gray-border);
+    max-width: 460px;
+    line-height: 2;
+  }
+
+  .cover-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+
+  .cover-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--gray-text);
+    max-width: 360px;
+    line-height: 1.7;
+  }
+
+  .cover-doc-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--gray-mid);
+    letter-spacing: 0.15em;
+    text-align: right;
+  }
+
+  /* URGÊNCIA */
+  .urgency-bar {
+    background: var(--navy);
+    padding: 0;
+  }
+  .urgency-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .urgency-dot {
+    width: 7px; height: 7px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .urgency-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* SECTIONS */
+  section { padding: 80px 0; }
+  section + section { border-top: 1px solid var(--gray-border); }
+
+  .section-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--navy);
+    margin-bottom: 28px;
+  }
+
+  .section-title em { font-style: italic; color: var(--black); }
+
+  .section-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: #3A3A36;
+    line-height: 1.85;
+    max-width: 640px;
+  }
+
+  .section-body p + p { margin-top: 18px; }
+
+  /* COMPARISON */
+  .comparison-wrap { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--gray-border); border: 1px solid var(--gray-border); }
+
+  .col-header {
+    padding: 24px 32px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  .col-traditional { background: var(--gray-bg); color: var(--gray-text); }
+  .col-mindmate { background: var(--navy); color: var(--white); }
+
+  .col-body { padding: 32px 32px 40px; background: var(--white); }
+  .col-mindmate-body { background: #EEF1F7; }
+
+  .comparison-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: #3A3A36;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .comparison-item:last-child { margin-bottom: 0; }
+
+  .cmp-icon {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .icon-no { background: #F0EDED; color: #9A8585; }
+  .icon-yes { background: var(--navy); color: var(--white); }
+
+  /* ENTREGAS */
+  .deliveries-grid { margin-top: 56px; display: flex; flex-direction: column; gap: 2px; background: var(--gray-border); border: 1px solid var(--gray-border); }
+
+  .delivery-row {
+    display: grid;
+    grid-template-columns: 1fr 180px 90px;
+    align-items: center;
+    background: var(--white);
+    padding: 20px 32px;
+    gap: 16px;
+  }
+  .delivery-row.row-header { background: var(--navy); padding: 16px 32px; }
+  .delivery-row.row-header span {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+  .delivery-row:nth-child(even):not(.row-header) { background: var(--gray-bg); }
+  .delivery-row.bonus-row { background: #EEF1F7; }
+
+  .delivery-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; font-weight: 400;
+    color: #3A3A36;
+  }
+  .delivery-name.bonus { color: var(--navy); font-weight: 500; }
+  .delivery-freq {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px; color: var(--gray-text);
+    text-align: center;
+  }
+  .delivery-check {
+    text-align: center;
+    color: var(--gold); font-size: 15px; font-weight: 600;
+  }
+  .bonus-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Inter', sans-serif;
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 2px 8px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  /* COMO FUNCIONA — steps */
+  .steps { margin-top: 56px; display: flex; flex-direction: column; gap: 0; }
+  .step {
+    display: flex; gap: 32px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--gray-border);
+    align-items: flex-start;
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px; font-weight: 400;
+    color: var(--gray-border);
+    line-height: 1; min-width: 56px;
+  }
+  .step-content h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; font-weight: 600;
+    color: var(--navy); margin-bottom: 8px;
+    letter-spacing: 0.02em;
+  }
+  .step-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; font-weight: 300;
+    color: var(--gray-text); line-height: 1.75;
+  }
+
+  /* PLANO CARD */
+  .plan-grid { display: flex; flex-direction: column; gap: 2px; margin-top: 56px; background: var(--gray-border); border: 1px solid var(--gray-border); }
+
+  .plan-card { background: var(--white); }
+  .plan-card.featured { background: var(--navy); color: var(--white); }
+
+  .plan-header {
+    padding: 40px 44px 36px;
+    border-bottom: 1px solid var(--gray-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .plan-card.featured .plan-header { border-bottom-color: rgba(255,255,255,0.12); }
+
+  .plan-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 10px;
+  }
+  .plan-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 500; line-height: 1.2;
+    color: var(--navy);
+  }
+  .plan-card.featured .plan-name { color: var(--white); }
+
+  .plan-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px; font-weight: 300;
+    color: var(--gray-text); margin-top: 6px;
+    font-style: italic; max-width: 360px;
+  }
+  .plan-card.featured .plan-tagline { color: rgba(255,255,255,0.55); }
+
+  .plan-price-box { text-align: right; }
+  .plan-price-old {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px; color: var(--gray-mid);
+    text-decoration: line-through; margin-bottom: 4px;
+  }
+  .plan-card.featured .plan-price-old { color: rgba(255,255,255,0.3); }
+
+  .plan-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; font-weight: 500;
+    color: var(--navy); line-height: 1;
+  }
+  .plan-card.featured .plan-price { color: var(--gold); }
+
+  .plan-price-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; font-weight: 400;
+    color: var(--gray-text); margin-top: 4px;
+  }
+  .plan-card.featured .plan-price-label { color: rgba(255,255,255,0.45); }
+
+  .plan-price-alt {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px; font-weight: 300;
+    color: var(--gray-mid); margin-top: 6px;
+  }
+  .plan-card.featured .plan-price-alt { color: rgba(255,255,255,0.4); }
+
+  .plan-body { padding: 36px 44px 44px; }
+
+  .plan-modules { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 40px; }
+
+  .module-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--gray-border);
+  }
+  .plan-card.featured .module-title {
+    color: var(--gold-light);
+    border-bottom-color: rgba(255,255,255,0.12);
+  }
+
+  .module-items { list-style: none; }
+  .module-items li {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px; font-weight: 300;
+    color: #3A3A36; line-height: 1.7;
+    padding-left: 16px; position: relative;
+  }
+  .plan-card.featured .module-items li { color: rgba(255,255,255,0.72); }
+  .module-items li::before {
+    content: '—'; position: absolute; left: 0;
+    color: var(--gold); font-size: 11px;
+  }
+  .plan-card.featured .module-items li::before { color: var(--gold-light); }
+
+  /* BÔNUS CARD */
+  .bonus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 48px; background: var(--gray-border); border: 1px solid var(--gray-border); }
+
+  .bonus-card { background: var(--white); padding: 40px; }
+  .bonus-card.dark { background: var(--navy); }
+
+  .bonus-icon { width: 36px; height: 36px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; }
+  .bonus-icon svg { width: 28px; height: 28px; }
+
+  .bonus-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 500;
+    color: var(--navy); margin-bottom: 8px; line-height: 1.3;
+  }
+  .bonus-card.dark .bonus-name { color: var(--white); }
+
+  .bonus-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+  }
+  .bonus-card.dark .bonus-sub { color: var(--gold-light); }
+
+  .bonus-items { list-style: none; }
+  .bonus-items li {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px; font-weight: 300;
+    color: #3A3A36; line-height: 1.75;
+    padding-left: 16px; position: relative;
+  }
+  .bonus-card.dark .bonus-items li { color: rgba(255,255,255,0.72); }
+  .bonus-items li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 11px; }
+  .bonus-card.dark .bonus-items li::before { color: var(--gold-light); }
+
+  /* INVESTIMENTO */
+  .investment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .promo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--gold);
+    padding: 14px 24px;
+    margin-top: 20px;
+  }
+  .promo-badge-dot {
+    width: 8px; height: 8px;
+    background: var(--gold); border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  .promo-badge-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .pricing-grid { display: flex; flex-direction: column; gap: 2px; background: var(--gray-border); border: 1px solid var(--gray-border); }
+
+  .pricing-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    background: var(--white);
+    padding: 36px 44px;
+    gap: 40px;
+  }
+  .pricing-row.featured-pricing { background: var(--navy); }
+
+  .pricing-plan-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 400;
+    color: var(--navy); margin-bottom: 4px;
+  }
+  .pricing-row.featured-pricing .pricing-plan-name { color: var(--white); }
+
+  .pricing-plan-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px; font-weight: 300;
+    color: var(--gray-text); font-style: italic;
+  }
+  .pricing-row.featured-pricing .pricing-plan-sub { color: rgba(255,255,255,0.5); }
+
+  .pricing-amounts { text-align: right; }
+
+  .pricing-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-weight: 500;
+    color: var(--navy); line-height: 1;
+  }
+  .pricing-row.featured-pricing .pricing-main { color: var(--gold); }
+
+  .pricing-pix {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; font-weight: 500;
+    color: var(--gold); letter-spacing: 0.15em;
+    text-transform: uppercase; margin-top: 4px;
+  }
+  .pricing-row.featured-pricing .pricing-pix { color: var(--gold-light); }
+
+  .pricing-card {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px; font-weight: 300;
+    color: var(--gray-mid); margin-top: 6px;
+  }
+  .pricing-row.featured-pricing .pricing-card { color: rgba(255,255,255,0.4); }
+
+  .pricing-note {
+    margin-top: 32px;
+    padding: 24px 36px;
+    background: var(--gray-bg);
+    border-left: 3px solid var(--gold);
+  }
+  .pricing-note p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px; font-weight: 300;
+    color: var(--gray-text); line-height: 1.75;
+    font-style: italic;
+  }
+  .pricing-note p + p { margin-top: 12px; }
+
+  /* RETROATIVO */
+  .retro-grid { display: flex; flex-direction: column; gap: 2px; background: var(--gray-border); border: 1px solid var(--gray-border); margin-top: 48px; }
+
+  .retro-header-row {
+    background: var(--navy);
+    padding: 20px 44px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .retro-header-row h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+  .retro-header-row span {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .retro-options-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--gray-border);
+  }
+
+  .retro-option {
+    background: var(--white);
+    padding: 40px 44px;
+    text-align: center;
+  }
+  .retro-option.highlight { background: #EEF1F7; }
+
+  .retro-option-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gray-mid); margin-bottom: 16px; display: block;
+  }
+  .retro-option.highlight .retro-option-label { color: var(--gold); }
+
+  .retro-option-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px; font-weight: 400;
+    color: var(--navy); line-height: 1; margin-bottom: 12px;
+  }
+
+  .retro-option-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px; font-weight: 300;
+    color: var(--gray-text); line-height: 1.7;
+  }
+  .retro-option-sub strong {
+    font-weight: 500; color: var(--navy);
+  }
+
+  .retro-note-row {
+    background: var(--gray-bg);
+    padding: 18px 44px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px; font-weight: 300;
+    color: var(--gray-text); font-style: italic;
+    text-align: center;
+  }
+
+  /* CLOSING */
+  .closing-section {
+    padding: 100px 0 80px;
+    border-top: 1px solid var(--gray-border);
+  }
+
+  .closing-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3.5vw, 30px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--navy);
+    max-width: 640px;
+    margin-bottom: 48px;
+  }
+  .closing-quote em { font-style: italic; color: var(--black); }
+
+  .closing-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px; font-weight: 300;
+    color: var(--gray-text); line-height: 1.85;
+    max-width: 540px; margin-bottom: 56px;
+  }
+
+  .closing-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 40px;
+    border-top: 1px solid var(--gray-border);
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .closing-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 500;
+    color: var(--navy); letter-spacing: 0.05em;
+  }
+
+  .closing-brand-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; font-weight: 400;
+    color: var(--gray-text); letter-spacing: 0.15em;
+    text-transform: uppercase; margin-top: 4px;
+  }
+
+  .closing-contact {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px; font-weight: 300;
+    color: var(--gray-text); text-align: right; line-height: 2;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 680px) {
+    .page { padding: 0 24px; }
+    .bonus-grid { grid-template-columns: 1fr; }
+    .comparison-wrap { grid-template-columns: 1fr; }
+    .pricing-row { grid-template-columns: 1fr; }
+    .pricing-amounts { text-align: left; }
+    .plan-header { flex-direction: column; }
+    .cover-top { flex-direction: column; gap: 16px; }
+    .cover-meta { text-align: left; }
+    .cover-bottom { flex-direction: column; gap: 20px; }
+    .retro-options-row { grid-template-columns: 1fr; }
+    .delivery-row { grid-template-columns: 1fr 120px 60px; }
+    .plan-modules { grid-template-columns: 1fr; }
+    .retro-header-row { flex-direction: column; gap: 8px; }
+    .urgency-inner { padding: 14px 24px; }
+    .investment-header { flex-direction: column; }
+  }
+
+  @media print {
+    section { page-break-inside: avoid; }
+    .cover { page-break-after: always; min-height: auto; padding: 60px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="page">
+  <div class="cover">
+    <div class="cover-top">
+      <div class="cover-logo">Mind Mate</div>
+      <div class="cover-meta">
+        Proposta Comercial<br>
+        Endereçada a: Vanessa Santos<br>
+        Junho de 2026 &nbsp;·&nbsp; Documento Confidencial
+      </div>
+    </div>
+
+    <div class="cover-center">
+      <div class="cover-eyebrow">Gestão Financeira para MEI</div>
+      <h1 class="cover-headline">
+        Controle.<br>
+        Clareza.<br>
+        <em>Resultado.</em>
+      </h1>
+      <div class="cover-sub">
+        Acompanhamento Semanal &nbsp;·&nbsp; Relatórios Visuais &nbsp;·&nbsp; Um Método
+      </div>
+    </div>
+
+    <div class="cover-bottom">
+      <p class="cover-tagline">
+        "Tudo o que você precisa para ter controle real do seu dinheiro — sem precisar entender de contabilidade."
+      </p>
+      <div class="cover-doc-number">
+        Vanessa Santos &nbsp;·&nbsp; Junho de 2026<br>
+        Uso Exclusivo do Cliente
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="gold-rule"></div>
+
+<!-- URGÊNCIA -->
+<div class="urgency-bar">
+  <div class="urgency-inner">
+    <div class="urgency-dot"></div>
+    <div class="urgency-text">Condição especial válida até as 18h de hoje &nbsp;·&nbsp; Exclusiva para esta proposta</div>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<div class="page">
+  <section>
+    <div class="section-eyebrow">Sobre a Mind Mate</div>
+    <h2 class="section-title">Uma consultoria construída<br>para o empreendedor <em>real.</em></h2>
+    <div class="section-body">
+      <p>A Mind Mate é uma agência de desenvolvimento de negócios com foco em gestão estratégica, operacional e financeira para pequenos negócios e empreendedores. Atuamos lado a lado com nossos clientes para que cada decisão seja baseada em dados claros e visão de crescimento.</p>
+      <p>Diferente de escritórios contábeis tradicionais, olhamos os seus números com olho de quem quer que o seu negócio prospere — não apenas para cumprir obrigação fiscal. Nosso objetivo é que você entenda seus números, tome decisões com confiança e construa um negócio financeiramente saudável.</p>
+    </div>
+  </section>
+</div>
+
+<!-- DIFERENCIAL -->
+<div class="page">
+  <section>
+    <div class="section-eyebrow">Posicionamento</div>
+    <h2 class="section-title">Por que a Mind Mate<br>é <em>diferente?</em></h2>
+    <div class="section-body">
+      <p>O mercado de contabilidade foi construído para entregar documentos. A Mind Mate entrega gestão — com linguagem simples, relatórios visuais e acompanhamento semanal real.</p>
+    </div>
+
+    <div class="comparison-wrap">
+      <div class="col-header col-traditional">
+        <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:4px;color:var(--gray-mid);">Modelo</div>
+        Contador Tradicional
+      </div>
+      <div class="col-header col-mindmate">
+        <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:4px;color:var(--gold-light);">Modelo</div>
+        Mind Mate
+      </div>
+
+      <div class="col-body">
+        <div class="comparison-item"><span class="cmp-icon icon-no">✕</span> Relatórios técnicos que você não entende</div>
+        <div class="comparison-item"><span class="cmp-icon icon-no">✕</span> Contato só na época do imposto</div>
+        <div class="comparison-item"><span class="cmp-icon icon-no">✕</span> Nenhuma visão de crescimento do negócio</div>
+        <div class="comparison-item"><span class="cmp-icon icon-no">✕</span> Sem alerta sobre o limite do MEI</div>
+        <div class="comparison-item"><span class="cmp-icon icon-no">✕</span> Entrega mensal ou nenhuma entrega</div>
+        <div class="comparison-item"><span class="cmp-icon icon-no">✕</span> Foco só em obrigação fiscal</div>
+      </div>
+
+      <div class="col-body col-mindmate-body">
+        <div class="comparison-item"><span class="cmp-icon icon-yes">✓</span> Relatório visual — entendível em 30 segundos</div>
+        <div class="comparison-item"><span class="cmp-icon icon-yes">✓</span> Acompanhamento semanal via WhatsApp</div>
+        <div class="comparison-item"><span class="cmp-icon icon-yes">✓</span> Olhar de negócios sobre seus números</div>
+        <div class="comparison-item"><span class="cmp-icon icon-yes">✓</span> Alerta proativo de limite de faturamento</div>
+        <div class="comparison-item"><span class="cmp-icon icon-yes">✓</span> Entrega toda segunda-feira, sem falta</div>
+        <div class="comparison-item"><span class="cmp-icon icon-yes">✓</span> Gestão + Organização + Estratégia</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ENTREGAS -->
+<div class="page">
+  <section>
+    <div class="section-eyebrow">O que está incluso</div>
+    <h2 class="section-title">Tudo o que você recebe,<br><em>toda semana.</em></h2>
+    <div class="section-body">
+      <p>Um pacote completo de acompanhamento financeiro — organizado, visual e entregue diretamente no seu WhatsApp.</p>
+    </div>
+
+    <div class="deliveries-grid">
+      <div class="delivery-row row-header">
+        <span>Entrega</span>
+        <span style="text-align:center;">Frequência</span>
+        <span style="text-align:center;">Incluso</span>
+      </div>
+      <div class="delivery-row">
+        <span class="delivery-name">Organização das Notas Fiscais de Serviço</span>
+        <span class="delivery-freq">Mensal</span>
+        <span class="delivery-check">✦</span>
+      </div>
+      <div class="delivery-row">
+        <span class="delivery-name">Planilha Semanal de Movimentação Financeira</span>
+        <span class="delivery-freq">Toda segunda-feira</span>
+        <span class="delivery-check">✦</span>
+      </div>
+      <div class="delivery-row">
+        <span class="delivery-name">Relatório com Gráficos Visuais</span>
+        <span class="delivery-freq">Semanal</span>
+        <span class="delivery-check">✦</span>
+      </div>
+      <div class="delivery-row">
+        <span class="delivery-name">Alerta de Limite de Faturamento MEI</span>
+        <span class="delivery-freq">Contínuo</span>
+        <span class="delivery-check">✦</span>
+      </div>
+      <div class="delivery-row">
+        <span class="delivery-name">Suporte via WhatsApp</span>
+        <span class="delivery-freq">Mensal</span>
+        <span class="delivery-check">✦</span>
+      </div>
+      <div class="delivery-row bonus-row">
+        <span class="delivery-name bonus"><span class="bonus-tag">Bônus</span>Gestão do 2º MEI — sem custo adicional</span>
+        <span class="delivery-freq">Incluso</span>
+        <span class="delivery-check">✦</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- COMO FUNCIONA -->
+<div class="page">
+  <section>
+    <div class="section-eyebrow">Como funciona</div>
+    <h2 class="section-title">Simples para você.<br><em>Completo por dentro.</em></h2>
+    <div class="section-body">
+      <p>O processo é pensado para ser o mais leve possível para você. Nenhuma planilha pra preencher sozinha, nenhum sistema complicado.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <div class="step-content">
+          <h4>Você compartilha as movimentações da semana</h4>
+          <p>Por formulário simples ou direto pelo WhatsApp — entradas, saídas, recibos. Sem complicação, no seu tempo.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <div class="step-content">
+          <h4>Nossa equipe lança, organiza e gera os relatórios</h4>
+          <p>Planilha atualizada, gráficos visuais e análise do período — tudo pronto antes da segunda-feira seguinte.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <div class="step-content">
+          <h4>Você recebe o resumo semanal direto no WhatsApp</h4>
+          <p>Sem planilhas confusas, sem linguagem técnica. Você entende seus números em 30 segundos.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">04</span>
+        <div class="step-content">
+          <h4>Notas organizadas e monitoramento do teto MEI</h4>
+          <p>Histórico fiscal sempre em dia e alerta proativo quando o faturamento se aproximar do limite de R$ 81.000/ano — antes de virar um problema.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- BÔNUS -->
+<div class="page">
+  <section>
+    <div class="section-eyebrow">Bônus Exclusivos</div>
+    <h2 class="section-title">Incluído nesta <em>proposta.</em></h2>
+    <div class="section-body">
+      <p>Além de todo o acompanhamento financeiro, Vanessa recebe um bônus exclusivo que amplia o valor desta contratação desde o primeiro mês.</p>
+    </div>
+
+    <div class="bonus-grid">
+      <div class="bonus-card dark">
+        <div class="bonus-icon">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="4" width="16" height="20" rx="2" stroke="#C9A84C" stroke-width="1.5"/>
+            <path d="M18 8h6a2 2 0 012 2v12a2 2 0 01-2 2h-6" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <circle cx="10" cy="14" r="3" stroke="#C9A84C" stroke-width="1.5"/>
+            <path d="M7 20c0-1.657 1.343-3 3-3s3 1.343 3 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="bonus-name">Gestão do 2º MEI<br>sem custo adicional</div>
+        <div class="bonus-sub">Dois negócios · Um único acompanhamento</div>
+        <ul class="bonus-items">
+          <li>Organização das notas do 2º MEI inclusa</li>
+          <li>Movimentação financeira separada por CNPJ</li>
+          <li>Relatório unificado ou individual — como preferir</li>
+          <li>Monitoramento de limite de faturamento de ambos</li>
+          <li>Suporte para os dois negócios no mesmo pacote</li>
+        </ul>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-icon">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="3,18 10,11 15,16 25,6" stroke="#1B2A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="25" cy="6" r="2" fill="#C9A84C"/>
+            <line x1="3" y1="22" x2="25" y2="22" stroke="#E2E2DE" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="bonus-name">Linha do tempo<br>financeira mensal</div>
+        <div class="bonus-sub">Evolução · Crescimento · Decisão</div>
+        <ul class="bonus-items">
+          <li>Histórico visual de faturamento mês a mês</li>
+          <li>Comparativo de crescimento entre períodos</li>
+          <li>Identificação de sazonalidades do negócio</li>
+          <li>Base para tomada de decisão com dados reais</li>
+          <li>Entregue mensalmente junto ao fechamento</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- INVESTIMENTO -->
+<div class="page">
+  <section>
+    <div class="section-eyebrow">Investimento</div>
+
+    <div class="investment-header">
+      <h2 class="section-title" style="margin-bottom:0;">Condição Especial de <em>hoje.</em></h2>
+      <div>
+        <div class="promo-badge">
+          <div class="promo-badge-dot"></div>
+          <div class="promo-badge-text">Válido até as 18h de hoje · Exclusivo para Vanessa</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-body" style="margin-bottom:40px;">
+      <p>O valor de tabela deste serviço é de R$ 497,00/mês. Como acreditamos no potencial do seu negócio e queremos construir essa parceria, oferecemos uma condição especial de investimento para fechamento ainda hoje.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-row featured-pricing">
+        <div>
+          <div style="display:inline-block;background:var(--gold);color:var(--navy);font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;padding:3px 12px;margin-bottom:10px;">Gestão Financeira MEI</div>
+          <div class="pricing-plan-name">Acompanhamento Mensal</div>
+          <div class="pricing-plan-sub">Planilha semanal · Relatórios visuais · Notas organizadas · 2º MEI incluso.</div>
+        </div>
+        <div class="pricing-amounts">
+          <div style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.3);text-decoration:line-through;text-align:right;margin-bottom:4px;">De R$ 497,00</div>
+          <div class="pricing-main">R$ 297,00</div>
+          <div class="pricing-pix">por mês</div>
+          <div class="pricing-card">Condição especial · válida até 18h de hoje</div>
+          <div style="margin-top:8px;display:inline-block;background:rgba(201,168,76,0.2);color:var(--gold-light);font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:4px 10px;">Economia de R$ 200,00/mês</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-note">
+      <p>Esta condição especial é válida exclusivamente para fechamento até às 18h do dia de hoje e foi desenvolvida para iniciar esta parceria de forma acessível, sem comprometer a qualidade do serviço prestado.</p>
+      <p>Após o encerramento da condição promocional, a Mind Mate reserva-se o direito de revisar os valores conforme disponibilidade de agenda.</p>
+    </div>
+  </section>
+</div>
+
+<!-- RETROATIVO -->
+<div class="page">
+  <section>
+    <div class="section-eyebrow">Regularização</div>
+    <h2 class="section-title">Retroativo <em>Janeiro a Maio/2025.</em></h2>
+    <div class="section-body">
+      <p>Para regularizar o histórico financeiro do período anterior ao início do contrato, oferecemos condições flexíveis de pagamento — sem juros e sem burocracia.</p>
+    </div>
+
+    <div class="retro-grid">
+      <div class="retro-header-row">
+        <h4>Taxa única de regularização &nbsp;·&nbsp; Janeiro a Maio de 2025 (5 meses)</h4>
+        <span>Sem juros</span>
+      </div>
+      <div class="retro-options-row">
+        <div class="retro-option">
+          <span class="retro-option-label">Parcelado</span>
+          <div class="retro-option-value">R$ 2.200</div>
+          <div class="retro-option-sub">
+            em até <strong>10× de R$ 220,00</strong><br>
+            sem juros no cartão
+          </div>
+        </div>
+        <div class="retro-option highlight">
+          <span class="retro-option-label">À vista · Melhor opção</span>
+          <div class="retro-option-value">R$ 1.780</div>
+          <div class="retro-option-sub">
+            pagamento único no Pix<br>
+            <strong>economia de R$ 420,00</strong>
+          </div>
+        </div>
+      </div>
+      <div class="retro-note-row">
+        O retroativo pode ser pago separadamente do contrato mensal ou combinado em um único acordo de início.
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ENCERRAMENTO -->
+<div class="page">
+  <div class="closing-section">
+    <div class="gold-rule" style="margin-bottom:60px;"></div>
+    <p class="closing-quote">
+      "A maioria dos empreendedores só descobre que o dinheiro acabou quando já acabou.<br>
+      A proposta da Mind Mate é diferente: <em>entregar clareza financeira toda semana, para que você tome decisões com segurança e construa um negócio que realmente sustenta.</em>"
+    </p>
+    <p class="closing-sub">
+      Porque ter um CNPJ é o começo.<br>
+      Mas gerir com inteligência é o que faz o negócio durar.
+    </p>
+
+    <div class="closing-footer">
+      <div>
+        <div class="closing-brand">Mind Mate</div>
+        <div class="closing-brand-sub">Agência de Desenvolvimento de Negócios</div>
+      </div>
+      <div class="closing-contact">
+        Proposta endereçada a Vanessa Santos &nbsp;·&nbsp; Junho de 2026<br>
+        <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);">Contato Mind Mate</span><br>
+        (21) 98178-3125 &nbsp;·&nbsp; mindmatebr@gmail.com<br>
+        © Mind Mate · Todos os direitos reservados
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
